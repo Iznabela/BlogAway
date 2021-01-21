@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body onload="checkEdits()">
+
+    <title>Blog Away</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js"></script>
+
+    <div class="header center rcorners1">
+        <div class="header-text">
+            <h1>Blog Away</h1>
+        </div>
+        <div class="nr-of-posts" id="nrOfPosts">
+            <label for="input-number">Nr of Posts:</label><br>
+            <input id="input-number" type="number" placeholder="0">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="center">
+            <div class="blogpost" id="blog1">
+                <h2>Rubrik</h2>
+                <p id="blogText">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quasi pariatur est eos voluptatum
+                    modi debitis fugit possimus mollitia eius suscipit officia provident distinctio at inventore architecto
+                    consequuntur accusantium fuga.</p>
+                <input type="button" value="save my edits" onclick="saveEdits()" />
+            </div>
+            <div class="blogpost" id="blog2">
+                <h2>Rubrik</h2>
+                <p id="blogText">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quasi pariatur est eos voluptatum
+                    modi debitis fugit possimus mollitia eius suscipit officia provident distinctio at inventore architecto
+                    consequuntur accusantium fuga.</p>
+                <input type="button" value="save my edits" onclick="saveEdits()" />
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
