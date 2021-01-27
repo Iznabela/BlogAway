@@ -1,17 +1,18 @@
+/* när window objektet laddats (fönstret som är uppe) och något finns i "input"
+tas alla posts bort för att sedan skapa så många som input är satt till */ 
 window.onload = function () {
     document.getElementById("input-number").oninput = function () {
-        removeAllSections();
-        var count = this.value;
-        // var nrOfPosts = document.getElementById("blog").children;
-        // nrOfPosts = nrOfPosts.length;
-        for (var i = 0; i < count; i++) {
+        removeAllPosts();
+        let count = this.value;
 
-            var parent = document.querySelector("section");
+        for (let i = 1; i <= count; i++) {
 
-            var child = document.createElement("div");
-            var title = document.createElement("h2");
-            var postText = document.createElement("p");
-            var button = document.createElement("input");
+            let blogSection = document.querySelector("section");
+
+            let post = document.createElement("div");
+            let title = document.createElement("h2");
+            let postText = document.createElement("p");
+            let button = document.createElement("input");
 
             title.innerHTML = "Rubrik " + i;
             postText.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore harum, quasi dicta ex totam quisquam quo tempore maxime, commodi praesentium eius quod suscipit! Tenetur magnam eligendi amet fugiat adipisci impedit.";
@@ -19,13 +20,13 @@ window.onload = function () {
             makeEditable(title);
             makeEditable(postText);
 
-            child.appendChild(title);
-            child.appendChild(postText);
-            child.appendChild(button);
-            parent.appendChild(child);
+            post.appendChild(title);
+            post.appendChild(postText);
+            post.appendChild(button);
+            blogSection.appendChild(post);
 
-            child.classList.add("blogpost");
-            child.id = "blog" + i;
+            post.classList.add("blogpost");
+            post.id = "blog" + i;
 
             button.setAttribute('type', 'button')
             button.value = "Save Changes";
@@ -33,6 +34,7 @@ window.onload = function () {
     }
 }
 
+// när funktionen kallas på med ett element som parameter går det elementet att editera
 function makeEditable(elem) {
     elem.onclick = function () {
         elem.contentEditable = true;
@@ -43,9 +45,12 @@ function makeEditable(elem) {
     }
 }
 
-function removeAllSections() {
-    var blogPosts = document.getElementById("blog").children;
-    for (var i = 0; i < blogPosts.length; i++) {
-        blogPosts[i].remove();
+// tar bort alla barn till blogSection
+function removeAllPosts() {
+    let blogSection = document.getElementById("blogSection");
+    /* loopar igenom så länge det finns ett "första barn"
+        och tar bort det sista barnet tills alla blogginlägg är borta */
+    while (blogSection.firstChild) {
+        blogSection.removeChild(blogSection.lastChild);
     }
 }
