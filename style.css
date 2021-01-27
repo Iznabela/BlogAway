@@ -6,7 +6,7 @@
 }
 
 html {
-    background: #f1f1f1;
+    background: #eeeded;
 }
 
 .header {
@@ -18,7 +18,7 @@ html {
     width: 50%;
     border-radius: 25px;
     text-align: center;
-    background: rgb(45, 112, 129);
+    background: #2d7081;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
@@ -37,12 +37,9 @@ html {
 .nr-of-posts {
     font-size: 24px;
     align-self: center;
-    padding: 20px
-}
-
-#input-number {
-    font-size: 18px;
-    padding: 20px
+    padding: 20px;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                 0px -5px 35px rgba(255,255,255,0.3);
 }
 
 .nr-of-posts input {
@@ -50,7 +47,7 @@ html {
     border-radius: 10px;
 }
 
-.blog {
+#blogSection {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
@@ -59,8 +56,8 @@ html {
 
 .blogpost {
     margin-bottom: 30px;
-    background: #f1f1f1;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background: #f2f2f2;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
 .blogpost h2 {
@@ -68,7 +65,7 @@ html {
 }
 
 .blogpost h2:hover {
-    border: 1px solid  rgba(0,0,0,0.6);
+    border: 2px dashed #16373F;
 }
 
 .blogpost p {
@@ -76,20 +73,23 @@ html {
 }
 
 .blogpost p:hover {
-    border: 1px solid  rgba(0,0,0,0.6);
+    border: 2px dashed #16373F;
 }
 
 .blogpost input {
     margin: 20px;
+    font-size: 18px;
     font-weight: bold;
-    border: none;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 4px outset #2d7081;
+    border-radius: 12px 0px 12px 0px;
+    box-shadow: 5px 3px 18px 2px rgba(0,0,0,0.21);
 }
 
 .blogpost input:hover {
     cursor: pointer;
-    background-color:  rgb(207, 129, 83);
-    
+    border: 4px inset #2D7081;
+    border-radius: 12px 0px 12px 0px;
+    box-shadow: none;
 }
 
 

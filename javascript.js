@@ -29,7 +29,7 @@ window.onload = function () {
             post.id = "blog" + i;
 
             button.setAttribute('type', 'button')
-            button.value = "Save Changes";
+            button.value = "Clear";
         }
     }
 }
