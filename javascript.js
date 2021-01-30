@@ -6,7 +6,13 @@
     på index och blogPosts.Lenght (som jag alltså hade som condition för en for-loop) 
     och då insåg jag att längden på blogPosts förändras (blir mindre) för varje varv medan index 
     ökar för varje varv vilket gjorde att de möttes på mitten och inte tog bort alla inlägg.
-     */
+
+    Hämtade istället ut Length innan loopen och debuggade igen. Märkte då att eftersom inläggen blir
+    en HTML-collection så flyttas elementen i listan efter ett tagits bort, alltså tar jag 
+    bort element på index 0 så hamnar elementet på index 1 sedan på index 0, och när jag sedan 
+    försöker ta bort ett högre index för varje varv kommer den försöka ta bort inlägg som inte finns
+    och inlägg på t.ex. index 0 kommer aldrig tas bort. Sökte då efter en smidigare lösning som
+    jag tycker funkar smidigt och är enkel att förstå (se kommentar nedan på removeAllPosts) */
 
 window.onload = function () {
 
@@ -82,4 +88,5 @@ function removeAllPosts() {
     while (blogSection.firstChild) {
         blogSection.removeChild(blogSection.lastChild);
     }
-}
+} 
+
