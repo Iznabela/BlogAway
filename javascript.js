@@ -39,6 +39,7 @@ window.onload = function () {
 
             // skapar innehåll i titeln och texten
             title.innerHTML = "Rubrik " + i;
+            title.id = "title" + i;
             postText.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore harum, quasi dicta ex totam quisquam quo tempore maxime, commodi praesentium eius quod suscipit! Tenetur magnam eligendi amet fugiat adipisci impedit.";
 
             // post blir ett barn till blogSection
@@ -60,6 +61,10 @@ window.onload = function () {
             // sätter attribut för knapp
             button.setAttribute('type', 'button')
             button.setAttribute('value', 'Clear')
+            button.id = "button" + i;
+
+            // gör så att texten i en post går att cleara
+            makePostClearable(button, title, postText);
         }
     }
 }
@@ -88,5 +93,14 @@ function removeAllPosts() {
     while (blogSection.firstChild) {
         blogSection.removeChild(blogSection.lastChild);
     }
-} 
+}
+
+// när knappen i en post klickas på blir titeln och paragrafen tomma strängar
+function makePostClearable(elem3, elem1, elem2) {
+    elem3.onclick = function () {
+        elem1.innerHTML = "";
+        elem2.innerHTML = "";
+    }
+}
+
 
