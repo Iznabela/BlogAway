@@ -15,7 +15,6 @@
     jag tycker funkar smidigt och är enkel att förstå (se kommentar nedan på removeAllPosts) */
 
 window.onload = function () {
-
     /* när window objektet laddats (fönstret som är uppe) och input-number fått ett värde 
         körs oninput-eventet som kallar på en funktion som raderar alla posts 
         för att sedan skapa upp så många nya posts som input är satt till */
@@ -54,7 +53,7 @@ window.onload = function () {
             makeEditable(title);
             makeEditable(postText);
 
-            // lägger till klass-namn till elementet post och sätter ett individuellt ID till varje post
+            // tilldelar en CSS klass till elementet post och sätter ett unikt ID på varje post
             post.classList.add("blogpost");
             post.id = "blog" + i;
 
@@ -70,8 +69,7 @@ window.onload = function () {
 }
 
 /* när funktionen kallas på med ett element som parameter går det elementet att editera
-    genom att ett onclick-event (som sker när elementet klickas på) kallar på en funktion som sätter 
-    contentEditable till true och sätter elementet i fokus.
+    genom att ett onclick-event kallar på en funktion som sätter contentEditable till true och sätter elementet i fokus.
     När elementet inte är i fokus längre (onblur-event) kallas en funktion som sätter contentEditable 
     till false vilket gör att elementet inte går att editera längre. */
 function makeEditable(elem) {
@@ -95,11 +93,12 @@ function removeAllPosts() {
     }
 }
 
-// när knappen i en post klickas på blir titeln och paragrafen tomma strängar
-function makePostClearable(elem3, elem1, elem2) {
-    elem3.onclick = function () {
-        elem1.innerHTML = "";
-        elem2.innerHTML = "";
+/*  funktion som skapar click-event för knappen i en post, när knappen klickas 
+    på blir titeln och paragrafen tomma strängar */
+function makePostClearable(button, title, postText) {
+    button.onclick = function () {
+        title.innerHTML = "";
+        postText.innerHTML = "";
     }
 }
 
