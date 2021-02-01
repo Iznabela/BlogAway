@@ -22,50 +22,57 @@ window.onload = function () {
         removeAllPosts();
         let inputNumber = this.value;
 
-        // skapar upp så många inlägg som användaren valt
-        for (let i = 1; i <= inputNumber; i++) {
+        if (inputNumber > -1) {
+            // skapar upp så många inlägg som användaren valt
+            for (let i = 1; i <= inputNumber; i++) {
 
-            // sparar blogg-sektionen i en variabel
-            let blogSection = document.getElementById("blogSection");
+                // sparar blogg-sektionen i en variabel
+                let blogSection = document.getElementById("blogSection");
 
-            // skapar en div som blir en post
-            let post = document.createElement("div");
+                // skapar en div som blir en post
+                let post = document.createElement("div");
 
-            // skapar upp delarna för en post
-            let title = document.createElement("h2");
-            let postText = document.createElement("p");
-            let button = document.createElement("input");
+                // skapar upp delarna för en post
+                let title = document.createElement("h2");
+                let postText = document.createElement("p");
+                let button = document.createElement("input");
 
-            // skapar innehåll i titeln och texten
-            title.innerHTML = "Rubrik " + i;
-            title.id = "title" + i;
-            postText.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore harum, quasi dicta ex totam quisquam quo tempore maxime, commodi praesentium eius quod suscipit! Tenetur magnam eligendi amet fugiat adipisci impedit.";
+                // skapar innehåll i titeln och texten
+                title.innerHTML = "Rubrik " + i;
+                title.id = "title" + i;
+                postText.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore harum, quasi dicta ex totam quisquam quo tempore maxime, commodi praesentium eius quod suscipit! Tenetur magnam eligendi amet fugiat adipisci impedit.";
 
-            // post blir ett barn till blogSection
-            blogSection.appendChild(post);
+                // post blir ett barn till blogSection
+                blogSection.appendChild(post);
 
-            // innehållet för en post blir barn till en post
-            post.appendChild(title);
-            post.appendChild(postText);
-            post.appendChild(button);
+                // innehållet för en post blir barn till en post
+                post.appendChild(title);
+                post.appendChild(postText);
+                post.appendChild(button);
 
-            // gör så att titeln och texten går att editera
-            makeEditable(title);
-            makeEditable(postText);
+                // gör så att titeln och texten går att editera
+                makeEditable(title);
+                makeEditable(postText);
 
-            // tilldelar en CSS klass till elementet post och sätter ett unikt ID på varje post
-            post.classList.add("blogpost");
-            post.id = "blog" + i;
+                // tilldelar en CSS klass till elementet post och sätter ett unikt ID på varje post
+                post.classList.add("blogpost");
+                post.id = "blog" + i;
 
-            // sätter attribut för knapp
-            button.setAttribute('type', 'button')
-            button.setAttribute('value', 'Clear')
-            button.id = "button" + i;
+                // sätter attribut för knapp
+                button.setAttribute('type', 'button')
+                button.setAttribute('value', 'Clear')
+                button.id = "button" + i;
 
-            // gör så att texten i en post går att cleara
-            makePostClearable(button, title, postText);
+                // gör så att texten i en post går att cleara
+                makePostClearable(button, title, postText);
+            }
         }
-    }
+        else {
+            alert("ERROR! välj ett nummer 0 och uppåt.")
+            let inputNumber = document.getElementById("input-number");
+            inputNumber.value = "0";
+        }        
+    }       
 }
 
 /* när funktionen kallas på med ett element som parameter går det elementet att editera
